@@ -313,7 +313,7 @@ def markov_transition_biro(pref_1, pref_2, MatchingM, actual_match_M):
                     elif pref_1[a[1], i] > pref_1[a[0], i] and pref_1[a[1], i] > pref_1[a[2], i]:
                         blocking_pair_2[i, :] = 0
                         blocking_pair_2[i, a[1]] = 1
-                    elif pref_1[a[2], i] > pref_1[a[0], i] and pref_1[a[2], i] > pref_1[a[1]] :
+                    elif pref_1[a[2], i] > pref_1[a[0], i] and pref_1[a[2], i] > pref_1[a[1],i] :
                         blocking_pair_2[i, :] = 0
                         blocking_pair_2[i, a[2]] = 1
                 elif len(a) == 4:
