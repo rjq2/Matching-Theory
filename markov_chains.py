@@ -232,7 +232,7 @@ def markov_transition_biro(pref_1, pref_2, MatchingM, actual_match_M):
     
     for i in range(n_f):
         if np.sum(blocking_pair_5[i, :] == 1) > 1:
-            blocking_indices = np.where(bloq_f_1[:, i] == 1)[0]
+            blocking_indices = np.where(bloq_f_1[i, :] == 1)[0]
             if np.max(blocking_indices) < bloq_m_2.shape[1]:  # Check index bounds for bloq_m_2
                 m_payoff = bloq_m_2[blocking_indices, i]
                 if np.max(blocking_indices) < bloq_f_2.shape[0]:  # Check index bounds for bloq_f_2
