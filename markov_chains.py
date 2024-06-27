@@ -171,7 +171,7 @@ def markov_transition_biro(pref_1, pref_2, MatchingM, actual_match_M):
     bloq_f_2 = pref_2.T
 
     bloq_m_1 = blocking_pair
-    bloq_m_2 = pref_1
+    bloq_m_2 = pref_1.T
 
     for i in range(n):
         if np.sum(blocking_pair_4[i, :] == 1) > 1:
