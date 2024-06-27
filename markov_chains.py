@@ -233,20 +233,22 @@ def markov_transition_biro(pref_1, pref_2, MatchingM, actual_match_M):
     for i in range(n_f):
         if np.sum(blocking_pair_5[i, :] == 1) > 1:
             blocking_indices = np.where(bloq_f_1[i, :] == 1)[0]
-            m_payoff = bloq_m_2[blocking_indices,i]
-            f_payoff = bloq_f_2[i, blocking_indices]
-            total = m_payoff + f_payoff
-            a = np.where(bloq_f_1[i, :] == 1)[0]
-            be = a[np.where(total == np.max(total))[0]]
-            if len(be) >= 2:
-                    e = len(be)
-                    blocking_pair_5[i, :] = 0
-                    blocking_pair_5[i, be[:e]] = 1
-            else:
+            if np.max(blocking_indices) < bloq_m_2.shape[1]:  # Check index bounds for bloq_m_2
+                m_payoff = bloq_m_2[blocking_indices, i]
+                if np.max(blocking_indices) < bloq_f_2.shape[0]:  # Check index bounds for bloq_f_2
+                    f_payoff = bloq_f_2[blocking_indices, i]
+                    total = m_payoff + f_payoff
                     a = np.where(bloq_f_1[i, :] == 1)[0]
                     be = a[np.where(total == np.max(total))[0]]
-                    blocking_pair_5[i, :] = 0
-                    blocking_pair_5[i, be] = 1
+                    if len(be) >= 2:
+                        e = len(be)
+                        blocking_pair_5[i, :] = 0
+                        blocking_pair_5[i, be[:e]] = 1
+                    else:
+                        a = np.where(bloq_f_1[i, :] == 1)[0]
+                        be = a[np.where(total == np.max(total))[0]]
+                        blocking_pair_5[i, :] = 0
+                        blocking_pair_5[i, be] = 1
 
     blocking_pair_5 = blocking_pair_5.T
     new_match_M_cell = np.zeros((1, n), dtype=int)
