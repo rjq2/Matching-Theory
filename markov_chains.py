@@ -267,7 +267,7 @@ def markov_transition_biro(pref_1, pref_2, MatchingM, actual_match_M):
                         new_match_M[column[0]] = 0
                     new_match_M[i] = j + 1
                     if index < new_match_M_cell.shape[0]:
-                        new_match_M_cell[index, :] = new_match_M
+                        new_match_M_cell[:, index] = new_match_M
                     else:
                         new_match_M_cell = np.vstack([new_match_M_cell, new_match_M])
                     index += 1
