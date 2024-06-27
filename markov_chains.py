@@ -177,7 +177,7 @@ def markov_transition_biro(pref_1, pref_2, MatchingM, actual_match_M):
         if np.sum(blocking_pair_4[i, :] == 1) > 1:
             blocking_indices = np.where(bloq_m_1[i, :] == 1)[0]
             if np.max(blocking_indices) < bloq_m_2.shape[1]:  # Check index bounds for bloq_m_2
-                m_payoff = bloq_m_2[blocking_indices, i]
+                m_payoff = bloq_m_2[i, blocking_indices]
                 if np.max(blocking_indices) < bloq_f_2.shape[0]:  # Check index bounds for bloq_f_2
                     f_payoff = bloq_f_2[blocking_indices, i]
                     total = m_payoff + f_payoff
