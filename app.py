@@ -11,10 +11,10 @@ def main():
     n_f = st.sidebar.number_input('Enter value for n_f:', min_value=1, step=1, value=3)
 
     st.sidebar.write("Enter preferences for pref_1 (separated by commas):")
-    pref_1_input = st.sidebar.text_area("pref_1", "1,2,3\n4,5,6\n7,8,9")
+    pref_1_input = st.sidebar.text_area("pref_1", "1,2,3\n2,3,1\n3,1,2")
 
     st.sidebar.write("Enter preferences for pref_2 (separated by commas):")
-    pref_2_input = st.sidebar.text_area("pref_2", "1,2,3\n4,5,6\n7,8,9")
+    pref_2_input = st.sidebar.text_area("pref_2", "1,2,3\n2,3,1\n3,1,2")
 
     if st.sidebar.button('Run Simulation'):
         st.write(f"Running simulation for n={n} and n_f={n_f}...")
