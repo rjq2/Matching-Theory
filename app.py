@@ -39,7 +39,7 @@ def main():
         st.write(t)
 
         # Display All_matchings_M
-        st.write("All Matchings (All_matchings_M):")
+        st.write("All Matchings (for men perspective):")
         st.write(All_matchings_M)
 
         # Improved display of matrices using st.expander and st.dataframe
@@ -59,11 +59,11 @@ def main():
         # Explanation box
         with st.expander("Explanation"):
             st.write("""
-                **All Matchings (All_matchings_M)**: This vector contains all possible matchings between the elements 
-                in the sets based on the input parameters `n` and `n_f`.
+                **All Matchings (All_matchings_M)**: Any row is a possible matchings between W and M
+                in the sets based on the input parameters `n` and `n_f`, each position on any row represents the index of man, the value is the index of a woman that is paired to, if the value is 0, it means that this spcific man is alone.
 
                 **Matrix Descriptions**:
-                - **M**: Represents the uniform block probability.
+                - **M**: Represents the uniform block probability matrix (Biro 2012).
                 - **M_m**: Ackermann Best response when 1 is the active side.
                 - **M_f**: Ackermann Best response when 2 is the active side.
                 - **M_e**: Utilitarian response when 1 is the active side.
