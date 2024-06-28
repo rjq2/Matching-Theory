@@ -346,10 +346,10 @@ def markov_transition_biro(pref_1, pref_2, MatchingM, actual_match_M):
 
         p2 = n_coincidence / new_match_M_cell.shape[0]
 
-    blocking_pair_3 = blocking_pair.copy().T
+    blocking_pair_3 = blocking_pair.copy()
 
     for i in range(n_f):
-        if np.sum(blocking_pair_3[:, i] == 1) > 1:
+        if np.sum(blocking_pair_3[i, :] == 1) > 1:
             a = np.where(blocking_pair_3[i, :] == 1)[0]
             if n == 2:
                 blocking_pair_3[:, i] = 0
