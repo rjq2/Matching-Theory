@@ -347,6 +347,7 @@ def markov_transition_biro(pref_1, pref_2, MatchingM, actual_match_M):
         p2 = n_coincidence / new_match_M_cell.shape[0]
 
     blocking_pair_3 = blocking_pair.copy()
+    pref_2 = pref_2.T
 
     for i in range(n_f):
         if np.sum(blocking_pair_3[:, i] == 1) > 1:
@@ -388,7 +389,7 @@ def markov_transition_biro(pref_1, pref_2, MatchingM, actual_match_M):
                     blocking_pair_3[np.argmax(pref_2[i, :]), i] = 1
 
     new_match_M_cell = np.zeros((1, n), dtype=int)
-
+    pref_2 = pref_2.T
     if not np.any(blocking_pair_3 == 1):
         if np.array_equal(MatchingM, actual_match_M):
             p3 = 1
