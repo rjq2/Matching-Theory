@@ -2,8 +2,6 @@ import streamlit as st
 import numpy as np
 from markov_chains import*
 
-
-
 def main():
     st.title('Markov Simulation App')
     st.sidebar.title('Input Parameters')
@@ -29,14 +27,7 @@ def main():
             st.error(f"Error in preferences input format: {e}")
             return
 
-        # Debugging: Print the preferences (optional)
-        # st.write("Preferences for pref_1:")
-        # st.write(pref_1)
-        # st.write("Preferences for pref_2:")
-        # st.write(pref_2)
-
         # Generate all_matchings_M
-        rep = 1
         All_matchings_M = comb(n, n_f)
 
         # Run markov_sim function
@@ -46,6 +37,10 @@ def main():
         st.header('Results')
         st.write("Vector t:")
         st.write(t)
+
+        # Display All_matchings_M
+        st.write("All Matchings (All_matchings_M):")
+        st.write(All_matchings_M)
 
         # Improved display of matrices using st.expander and st.dataframe
         matrix_dict = {
@@ -60,6 +55,20 @@ def main():
             with st.expander(matrix_name):
                 # Display the selected matrix
                 st.dataframe(matrix)
+
+        # Explanation box
+        with st.expander("Explanation"):
+            st.write("""
+                **All Matchings (All_matchings_M)**: This vector contains all possible matchings between the elements 
+                in the sets based on the input parameters `n` and `n_f`.
+
+                **Matrix Descriptions**:
+                - **M**: Represents the uniform block probability.
+                - **M_m**: Ackermann Best response when 1 is the active side.
+                - **M_f**: Ackermann Best response when 2 is the active side.
+                - **M_e**: Utilitarian response when 1 is the active side.
+                - **M_e_f**: Utilitarian response when 2 is the active side.
+            """)
 
 if __name__ == '__main__':
     main()
