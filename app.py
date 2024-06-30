@@ -4,6 +4,7 @@ from markov_chains import*
 
 def main():
     st.title('Markov Simulation App')
+    st.subheader('This app simulates Markov Chains based on user-defined preferences for matching scenarios.')
     st.sidebar.title('Input Parameters')
 
     # Sidebar inputs
@@ -41,8 +42,8 @@ def main():
         # Display All_matchings_M
         st.write("All Matchings (for men perspective):")
         st.write(All_matchings_M)
-                # Explanation box
-                
+
+        # Explanation box
         with st.expander("Explanation"):
             st.write("""
                 **All Matchings (All_matchings_M)**: Any row is a possible matchings between W and M
