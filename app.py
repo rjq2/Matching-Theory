@@ -4,12 +4,13 @@ from markov_chains import*
 
 def main():
     st.title('Markov Simulation App')
-    st.subheader('This app simulates Markov Chains based on user-defined preferences for matching scenarios.')
+    st.subheader('This app generates the Markov Chain of a descentralized bilateral matching process, asociated on a user-defined instance. The markov chain  of a decentralized proccess depends of the tipe of blocking pairs that are permited given a arbitrary matching')
     st.sidebar.title('Input Parameters')
 
     # Sidebar inputs
-    n = st.sidebar.number_input('Enter value for n_1: ', min_value=1, step=1, value=3)
-    n_f = st.sidebar.number_input('Enter value for n_2:', min_value=1, step=1, value=3)
+    n = st.sidebar.number_input('Enter value for n_1: ', min_value=2, max_value=6, step=1, value=3)
+    n_f = st.sidebar.number_input('Enter value for n_2:', min_value=2, max_value=6, step=1, value=3)
+
 
     st.sidebar.write("Enter preferences for pref_1 (separated by commas):")
     pref_1_input = st.sidebar.text_area("pref_1", "1,3,3\n2,2,1\n3,1,2")
