@@ -12,11 +12,11 @@ def main():
     n_f = st.sidebar.number_input('Enter value for $n_2$:', min_value=2, max_value=6, step=1, value=3)
 
 
-    st.sidebar.write("Enter preferences for $pref_1$ (separated by commas):")
-    pref_1_input = st.sidebar.text_area("pref_1", "1,3,3\n2,2,1\n3,1,2")
+    st.sidebar.write("Enter preferences for $\text{pref}_1$ (separated by commas):")
+    pref_1_input = st.sidebar.text_area("\text{pref}_1", "1,3,3\n2,2,1\n3,1,2")
 
-    st.sidebar.write("Enter preferences for $pref_2$ (separated by commas):")
-    pref_2_input = st.sidebar.text_area("pref_2", "3,2,2\n1,3,1\n2,1,3")
+    st.sidebar.write("Enter preferences for $\text{pref}_2$ (separated by commas):")
+    pref_2_input = st.sidebar.text_area("\text{pref}_2", "3,2,2\n1,3,1\n2,1,3")
 
     if st.sidebar.button('Run Simulation'):
         st.write(f"Running simulation for $n_1$ = {n} and $n_2$ = {n_f} ... ")
