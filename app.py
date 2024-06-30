@@ -41,6 +41,20 @@ def main():
         # Display All_matchings_M
         st.write("All Matchings (for men perspective):")
         st.write(All_matchings_M)
+                # Explanation box
+                
+        with st.expander("Explanation"):
+            st.write("""
+                **All Matchings (All_matchings_M)**: Any row is a possible matchings between W and M
+                in the sets based on the input parameters `n` and `n_f`, each position on any row represents the index of man, the value is the index of a woman that is paired to, if the value is 0, it means that this spcific man is alone.
+
+                **Matrix Descriptions**:
+                - **M**: Represents the uniform block probability matrix (Biro 2012).
+                - **M_m**: Ackermann Best response when 1 is the active side.
+                - **M_f**: Ackermann Best response when 2 is the active side.
+                - **M_e**: Utilitarian response when 1 is the active side.
+                - **M_e_f**: Utilitarian response when 2 is the active side.
+            """)
 
         # Improved display of matrices using st.expander and st.dataframe
         matrix_dict = {
@@ -55,20 +69,6 @@ def main():
             with st.expander(matrix_name):
                 # Display the selected matrix
                 st.dataframe(matrix)
-
-        # Explanation box
-        with st.expander("Explanation"):
-            st.write("""
-                **All Matchings (All_matchings_M)**: Any row is a possible matchings between W and M
-                in the sets based on the input parameters `n` and `n_f`, each position on any row represents the index of man, the value is the index of a woman that is paired to, if the value is 0, it means that this spcific man is alone.
-
-                **Matrix Descriptions**:
-                - **M**: Represents the uniform block probability matrix (Biro 2012).
-                - **M_m**: Ackermann Best response when 1 is the active side.
-                - **M_f**: Ackermann Best response when 2 is the active side.
-                - **M_e**: Utilitarian response when 1 is the active side.
-                - **M_e_f**: Utilitarian response when 2 is the active side.
-            """)
 
 if __name__ == '__main__':
     main()
